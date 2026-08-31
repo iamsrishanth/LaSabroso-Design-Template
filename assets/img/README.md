@@ -1,24 +1,30 @@
-# Image slots — swap guide
+# Image slots — real-asset map (v2, verified 2026-08-31)
 
-All imagery is **remote Unsplash stock** (warm cafe aesthetic) mirroring the
-current lasabroso.com approach. To swap in the cafe's real photography:
+All imagery in this template is REAL venue or listing-sourced media, hot-linked
+from the cafe's own CDNs. Swap strategy and fallbacks live here.
 
-1. Save photos into this folder (e.g. `hero.jpg`, `about-1.jpg`, `gallery-01.jpg` …)
-2. Replace the `https://images.unsplash.com/...` URLs in the HTML `src` /
-   `--hero-img` variables with `assets/img/<file>.jpg`
+## Real assets (do not replace without reason)
 
-## Hero
-- slot: hero.jpg (~1920px wide) — used as CSS background via `--hero-img` on
-  `.hero` (index.html)
-- fallback currently hot-linked:
-  `photo-1514933651103-005eec06c04b` (same as lasabroso.com "La Sabroso Vibe")
+| Slot | Source | URL |
+|---|---|---|
+| Hero background | Venue site CDN (verified live) | `https://www.lasabroso.com/hero-bg.png` (840KB PNG, 200 OK). Used as `background` on `.hero__bg` in style.css |
+| Menu food photos (40 live + 1 nulled upstream-403) | Petpooja CDN | `dineinpetweb.gumlet.io/homewebsite/104812/thumb_*.{jpeg,jpg,JPG,png}` — hot-linked from `assets/js/menu-data.json`. One item (Veg Alfredo Pasta) returns 403 upstream as of 2026-08-31 and is `null`-photo in the JSON so the renderer shows its placeholder; 40 photos remain live. |
+| Wordmark font | Venue site CDN (Histerm OTF) | `https://www.lasabroso.com/_next/static/media/Histerm-s.p.0dgvpl1xcgdvy.otf` via `@font-face` in style.css. Free-for-personal-use license; do NOT redistribute the OTF with this template. Fallback: Dancing Script. |
 
-## About
-- about-1.jpg — cafe interior, chandeliers / macrame
-- about-2.jpg — coffee pouring / latte art
+## Upstream quarantine notes
 
-## Gallery (16 slots)
-gallery.html uses a masonry grid with these fallback Unsplash IDs (replace
+- The venue's own domain is `lasabroso.com` -> in URLs this template uses the
+  working form. The brand NAME is always **LaSabroso** in copy. Never write
+  "La Sabraso" — the misspelling appears on the venue's live site (corporate
+  events + moments headings, checked 2026-08-31) and is quarantine-listed.
+- Upstream menu data keeps venue typos verbatim in `menu-data.json` (e.g.
+  category "iced cofffee", "Corriander", "Chessy"). Display labels are
+  normalized in `assets/js/main.js` via `CAT_DISPLAY` (`iced cofffee` shows as
+  "Iced Coffee"). Do not edit the JSON to "fix" them.
+
+## Gallery (16 slots — Unsplash fallbacks, warm-cafe texture)
+
+`gallery.html` uses a masonry grid with these fallback Unsplash IDs (replace
 `src` with local files; update `alt` + `figcaption` accordingly):
 
 | # | Unsplash ID | Subject |
@@ -40,12 +46,12 @@ gallery.html uses a masonry grid with these fallback Unsplash IDs (replace
 | 15 | photo-1442512595331-e89e73853f31 | pour over |
 | 16 | photo-1453614512568-c4024d13c247 | cafe sea-view tables |
 
-## Menu item photos
-41 items in `assets/js/menu-data.json` already carry the cafe's REAL food
-photos hosted on their Petpooja CDN (dineinpetweb.gumlet.io). These render
-automatically in menu.html with a ☕ placeholder fallback if a URL 404s.
+Audit rule: before shipping, HEAD-check every Unsplash ID (a 404 or a subject
+that doesn't read warm-cafe means swap it).
 
 ## Brand marks (partner cards)
-Rendered as colored text chips (.partner__logo), NOT the official Zomato/
-Swiggy trademark logos — swap with licensed assets if this becomes their
-production site.
+
+Rendered as colored text chips (`.partner__logo`, `.partner__tag`) — honest
+fallback for the Zomato/Swiggy/District/Dineout trademarks. The venue's own
+site serves logo PNGs at `/_next/image?url=%2F<name>.png`; swap with licensed
+assets if redistributing.

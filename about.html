@@ -2,167 +2,203 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — La Sabroso · Boho Neon Cafe in Madhapur</title>
-  <meta name="description" content="The story of La Sabroso, Madhapur — a passion project blending Italian elegance with Indian spice, liquid-nitrogen gelato, and a pet-friendly Boho Neon room.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>La Sabroso | Our Story, Madhapur Hyderabad</title>
+  <meta name="description" content="A sensory sanctuary in Madhapur where Italian elegance meets Indian spice. Est. 2023, open daily 11 AM to 11 PM.">
+  <meta property="og:title" content="La Sabroso | Our Story">
+  <meta property="og:description" content="A sensory sanctuary in Madhapur where Italian elegance meets Indian spice. Est. 2023, open daily 11 AM to 11 PM.">
+  <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Nunito:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Outfit:wght@400;600;700;800&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js" defer></script>
 </head>
 <body>
 
+  <!-- ===== Navigation ===== -->
   <nav class="nav">
     <div class="container nav__inner">
       <a class="nav__logo" href="index.html">La Sabroso</a>
-      <ul class="nav__links">
+      <button class="nav__toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false">☰</button>
+      <ul class="nav__links" data-nav-links>
         <li><a href="index.html">Home</a></li>
         <li><a href="menu.html">Menu</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="about.html" aria-current="page">About</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="events.html">Events</a></li>
       </ul>
-      <a class="btn btn--filled nav__cta" href="contact.html">Book a Table</a>
-      <button class="nav__toggle" aria-label="Menu">☰</button>
+      <a class="btn btn--filled nav__cta" href="https://ig.me/m/lasabroso_cafe">Reserve your table</a>
     </div>
   </nav>
 
-  <header class="page-hero">
-    <div class="container">
-      <span class="kicker">La Sabroso</span>
-      <h1>Our Story</h1>
-      <p>From a passion project in Madhapur to your neighborhood's Boho Neon hideaway.</p>
-    </div>
-  </header>
-
   <main>
+
+    <!-- ===== Page hero ===== -->
+    <header class="page-hero">
+      <div class="container">
+        <span class="kicker">Our story</span>
+        <h1>About La Sabroso</h1>
+        <p>A sensory sanctuary in Madhapur where Italian elegance meets Indian spice.</p>
+      </div>
+    </header>
+
+    <!-- ===== Brand story ===== -->
     <section class="section">
       <div class="container">
         <div class="split reveal">
           <div class="split__media">
-            <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?q=80&w=900&auto=format&fit=crop" alt="The cafe's warm corner seating" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&amp;w=900&amp;auto=format&amp;fit=crop" alt="La Sabroso cafe bar interior">
           </div>
-          <div>
-            <span class="kicker script">How it began</span>
-            <h2>La Sabroso means 'tasty'. We made it a place.</h2>
-            <p>We opened our doors in early 2023 in Madhapur, the passion project of founder Chengalpet Venu Madhav — a food lover who walked out of the corporate world with a stubborn idea: that a meal should feed more than hunger.</p>
-            <p>The name gave us the brief. <em>Sabroso</em> — Spanish for 'tasty' — became a room where Italian elegance meets Indian spice on the same table, where a slow braise and a masala both get the respect they deserve.</p>
-            <p>The room grew into what regulars now call Boho Neon: macrame on the walls, chandeliers hanging low, and a pink neon sign that flickers on every evening. It is warm, a little playful, and deliberately unhurried.</p>
-            <p>And because good company matters as much as good food — bring the dog, park for free, stay a while. La Sabroso was built for lingering.</p>
+          <div class="split__content">
+            <span class="kicker">The house</span>
+            <h2>A self-taught kitchen with a big smile</h2>
+            <p>La Sabroso opened in Madhapur in 2023, built by a self-taught BTech foodie with a love for bold, comforting food. The name means tasty in Spanish, and the menu runs from Italian pastas and thin-crust pizzas to Indian-fusion signatures and artisan coffee.</p>
+            <p>The room is boho by design: hanging lights, textured quote walls, graphic art above upholstery, and space for long conversations.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section--alt">
+    <!-- ===== Quote ===== -->
+    <section class="section section--tight">
       <div class="container">
-        <div class="section-heading reveal">
+        <figure class="quote reveal">
+          A sophisticated blend of Italian elegance and Indian spice.
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== Signatures ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
           <span class="kicker">Signatures</span>
-          <h2>Made famous here</h2>
-          <p>The three things people cross the city for.</p>
+          <h2 class="section-head__title">Order these first</h2>
         </div>
-        <div class="grid grid--3">
-          <div class="card reveal">
-            <h3>Liquid Nitrogen Ice Cream</h3>
-            <p>Watch the fog roll as nitrogen freezes fresh cream into the smoothest scoop in Madhapur — our most-loved ritual.</p>
+        <div class="signature-grid reveal">
+          <div class="dish-card">
+            <h3 class="dish-card__name">Parmesan Crumb Fried Chicken</h3>
+            <p class="dish-card__desc">Tender chicken, crunchy parmesan panko crust</p>
+            <span class="dish-card__price">₹494</span>
           </div>
-          <div class="card reveal">
-            <h3>French Hot Chocolate</h3>
-            <p>Thick, dark, velvety — dunk churros in it like the regulars do.</p>
+          <div class="dish-card">
+            <img class="dish-card__img" src="https://dineinpetweb.gumlet.io/homewebsite/104812/thumb_17568349900_2025_09_02_23_13_05_80e3d71f_e276_489b_903f_92afc3a71097.jpg" alt="Mutton Kheema Pizza">
+            <h3 class="dish-card__name">Mutton Kheema Pizza</h3>
+            <p class="dish-card__desc">Thin crust, spiced mutton kheema, bubbling cheese</p>
+            <span class="dish-card__price">₹624</span>
           </div>
-          <div class="card reveal">
-            <h3>Curry Leaf Chicken with Corriander Rice</h3>
-            <p>Where the fusion began: a South Indian soul inside a continental plate. ₹554</p>
+          <div class="dish-card">
+            <img class="dish-card__img" src="https://dineinpetweb.gumlet.io/homewebsite/104812/thumb_17568363720_2025_09_02_23_35_59_cef472dc_c2f2_4037_bedf_49bea1bb7fb2.jpg" alt="Classic Cold Coffee">
+            <h3 class="dish-card__name">Classic Cold Coffee</h3>
+            <p class="dish-card__desc">The smooth, creamy house signature</p>
+            <span class="dish-card__price">₹344</span>
           </div>
         </div>
+        <p class="menu-note text-center"><a class="btn btn--outline" href="menu.html">See the full menu</a></p>
       </div>
     </section>
 
+    <!-- ===== Amenities ===== -->
     <section class="section">
       <div class="container">
-        <div class="split split--reverse reveal">
-          <div>
-            <h2>Boho Neon, always</h2>
-            <p>Every evening the room hums exactly the way we imagined: a curated playlist sliding into live music on weekends, brunch dates stretching past noon, and small celebrations at the corner tables that somehow always end with a scoop from the Ice Cream Lab.</p>
-            <p>The vibe is the whole point — bohemian warmth with a neon pulse, made for first dates, family dinners and everything unscripted in between.</p>
-            <div class="amenities grid grid--2">
-              <span class="amenity">🐾 Pet-friendly</span>
-              <span class="amenity">🚗 Free parking</span>
-              <span class="amenity">🎵 Live music</span>
-              <span class="amenity">🌿 Outdoor seating</span>
-            </div>
+        <div class="section-head">
+          <span class="kicker">Amenities</span>
+          <h2 class="section-head__title">Comforts of home</h2>
+        </div>
+        <div class="grid grid--3 reveal">
+          <div class="specialty-card">
+            <div class="specialty-card__icon">P</div>
+            <h3>Pet friendly</h3>
+            <p>Well-behaved pets get a warm welcome.</p>
           </div>
-          <div class="split__media">
-            <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=900&auto=format&fit=crop" alt="Evening glow at the cafe" loading="lazy">
+          <div class="specialty-card">
+            <div class="specialty-card__icon">W</div>
+            <h3>Free Wi-Fi</h3>
+            <p>Fast Wi-Fi for calls, work and browsing.</p>
+          </div>
+          <div class="specialty-card">
+            <div class="specialty-card__icon">P</div>
+            <h3>Free parking</h3>
+            <p>Free parking for guests near the cafe.</p>
+          </div>
+          <div class="specialty-card">
+            <div class="specialty-card__icon">M</div>
+            <h3>Live music</h3>
+            <p>Weekend sets and easy acoustic evenings.</p>
+          </div>
+          <div class="specialty-card">
+            <div class="specialty-card__icon">A</div>
+            <h3>AC, indoor + outdoor seating</h3>
+            <p>Air-conditioned rooms inside, open-air patio outside.</p>
+          </div>
+          <div class="specialty-card">
+            <div class="specialty-card__icon">H</div>
+            <h3>Wheelchair accessible</h3>
+            <p>Step-free entry and accessible seating.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section events">
+    <!-- ===== Events teaser ===== -->
+    <section class="section section--tight">
       <div class="container">
-        <div class="split reveal">
-          <div>
-            <span class="eyebrow">Come celebrate</span>
-            <h2>Birthdays, brunches &amp; big news.</h2>
-            <p>Tell us what you are celebrating and we will set the table, the playlist and — if you ask nicely — a nitrogen fog welcome for the whole party. Small groups to full buyouts, we love them all.</p>
-            <a class="btn btn--terra" href="contact.html">Plan Your Visit</a>
-          </div>
-          <div class="neon-sign">La Sabroso</div>
+        <div class="franchise reveal">
+          <p>Planning a birthday, corporate dinner or bulk order?</p>
+          <a class="btn btn--filled" href="events.html">See events at La Sabroso</a>
         </div>
       </div>
     </section>
 
-    <section class="section section--alt">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="kicker">Hungry?</span>
-          <h2>See what's brewing.</h2>
-          <a class="btn btn--filled" href="menu.html">Browse the Menu</a>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <footer class="footer">
-    <div class="container grid grid--4">
-      <div>
-        <span class="script">La Sabroso</span>
-        <p class="footer__blurb">Experience the fusion of Italian &amp; Indian flavors in a vibrant Boho Neon setting — right in the heart of Madhapur.</p>
+  <!-- ===== Footer ===== -->
+  <footer class="footer" id="franchise">
+    <div class="container footer__grid">
+      <div class="grid grid--4">
+        <div>
+          <span class="script">La Sabroso</span>
+          <p class="footer__blurb">A sensory sanctuary in Madhapur, Hyderabad. Italian elegance meets Indian spice, open daily 11 AM to 11 PM.</p>
+          <div class="rating" aria-label="Rated 4.3 out of 5 on Zomato"><span class="rating__stars">★★★★</span> 4.3 · Zomato</div>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="events.html">Events</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Find us</h3>
+          <ul>
+            <li>Madhapur, Hyderabad, Telangana 500019</li>
+            <li><a href="tel:+919182801364">+91 9182801364</a></li>
+            <li><a href="mailto:lasabrosocafe2022@gmail.com">lasabrosocafe2022@gmail.com</a></li>
+            <li><a href="https://www.instagram.com/lasabroso_cafe">@lasabroso_cafe</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Hours</h3>
+          <ul>
+            <li class="footer__hours">Mon to Sun</li>
+            <li class="footer__hours">11:00 AM 11:00 PM</li>
+          </ul>
+          <h3>Booking</h3>
+          <ul>
+            <li><a href="https://ig.me/m/lasabroso_cafe">Reserve via Instagram DM</a></li>
+            <li><a href="https://www.zomato.com/hyderabad/la-sabroso-madhapur">Zomato</a></li>
+            <li><a href="https://www.swiggy.com/">Swiggy</a></li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="menu.html">Menu</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Find Us</h3>
-        <ul>
-          <li>Kavuri Hills Road, Madhapur, Hyderabad 500081</li>
-          <li><a href="tel:+919182801364">+91 9182801364</a></li>
-          <li><a href="mailto:lasabrosocafe2022@gmail.com">lasabrosocafe2022@gmail.com</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Hours &amp; Social</h3>
-        <ul>
-          <li>Mon–Sun · 11:00 AM – 11:00 PM</li>
-          <li><a href="https://www.instagram.com/lasabroso_cafe/" target="_blank" rel="noopener">@lasabroso_cafe</a></li>
-          <li>Pet-friendly · Free parking</li>
-        </ul>
-      </div>
-    </div>
-    <div class="container footer__bottom">
-      <span>© 2026 La Sabroso, Madhapur</span>
-      <span>Design template — unofficial fan craft</span>
+      <p class="footer__note">Franchise and bulk-event inquiries welcome, FOCO model. Open daily 11 AM to 11 PM. Fan craft template, not affiliated with the cafe.</p>
     </div>
   </footer>
 
-  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
