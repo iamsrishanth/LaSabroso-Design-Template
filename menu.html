@@ -3,42 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>La Sabroso | Menu: 121 Dishes, 20 Categories, Madhapur Hyderabad</title>
-  <meta name="description" content="Explore La Sabroso's live menu: 121 dishes across 20 categories, from Italian pastas and artisan coffee to Indian fusion signatures and liquid-nitrogen ice cream.">
-  <meta property="og:title" content="La Sabroso | Full Menu, Madhapur Hyderabad">
-  <meta property="og:description" content="Explore La Sabroso's live menu: 121 dishes across 20 categories, from Italian pastas and artisan coffee to Indian fusion signatures and liquid-nitrogen ice cream.">
-  <meta property="og:type" content="website">
+  <title>La Sabroso — Menu | 121 Dishes, 20 Categories, Madhapur Hyderabad</title>
+  <meta name="description" content="Explore La Sabroso's live menu — 121 dishes across 20 categories, from Italian pastas and artisan coffee to Indian fusion signatures and liquid nitrogen ice cream.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Outfit:wght@400;600;700;800&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;600;700;800&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-  <script src="assets/js/main.js" defer></script>
 </head>
 <body>
 
   <!-- ===== Navigation ===== -->
   <nav class="nav">
-  <div class="container nav__inner">
-    <a class="nav__logo" href="index.html">La Sabroso</a>
-    <button class="nav__toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false">☰</button>
-    <ul class="nav__links" data-nav-links>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="menu.html" aria-current="page">Menu</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="events.html">Events</a></li>
-    </ul>
-    <a class="btn btn--filled nav__cta" href="https://ig.me/m/lasabroso_cafe">Reserve your table</a>
-  </div>
-</nav>
+    <div class="container nav__inner">
+      <a class="nav__logo" href="index.html">La Sabroso</a>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html" aria-current="page">Menu</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a class="btn btn--filled nav__cta" href="contact.html">Book a Table</a>
+      <button class="nav__toggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </nav>
 
   <!-- ===== Page Hero ===== -->
   <header class="page-hero">
     <div class="container">
       <span class="kicker">La Sabroso</span>
       <h1>Our Menu</h1>
-      <p>121 dishes across 20 categories, from Italian pastas and artisan coffee to Indian-fusion signatures.</p>
+      <p>121 dishes, 20 categories — Italian elegance meets Indian spice.</p>
     </div>
   </header>
 
@@ -49,112 +43,59 @@
     </div>
   </div>
 
-  <!-- ===== Category Tabs + veg toggle ===== -->
+  <!-- ===== Category Tabs (built by main.js) ===== -->
   <div class="container">
-    <div class="menu-tabs menu-tabs--sticky">
-      <div data-menu-tabs aria-label="Menu categories"></div>
-      <button class="menu-tab" data-menu-veg aria-pressed="false">Veg only</button>
-    </div>
+    <div class="menu-tabs" data-menu-tabs></div>
   </div>
 
-  <!-- ===== Menu (main.js swaps this root for the live 121-item menu) ===== -->
-  <main class="container section section--tight">
-    <div data-menu-root>
-      <div class="menu-grid">
-        <article class="menu-item">
-          <img class="menu-item__img" src="https://dineinpetweb.gumlet.io/homewebsite/104812/thumb_17816798790_2026_06_17_12_33_43_Honey_Lemon_Pepper_chicken_Tenders.jpeg" alt="Honey Lemon Pepper Chicken Tenders" loading="lazy">
-          <div class="menu-item__body">
-            <div class="menu-item__top">
-              <h3 class="menu-item__name"><span class="tag-nonveg" title="Non-veg" aria-label="Non-veg"></span>Honey Lemon Pepper Chicken Tenders<span class="badge-chef">★ Chef&rsquo;s Pick</span></h3>
-              <span class="menu-item__dots" aria-hidden="true"></span>
-              <span class="menu-item__price">₹544</span>
-            </div>
-            <p class="menu-item__desc">Crispy fried chicken tenders drenched in a rich honey lemon pepper sauce</p>
-          </div>
-        </article>
-        <article class="menu-item">
-          <img class="menu-item__img" src="https://dineinpetweb.gumlet.io/homewebsite/104812/thumb_17568349900_2025_09_02_23_13_05_80e3d71f_e276_489b_903f_92afc3a71097.jpg" alt="Mutton Kheema Pizza" loading="lazy">
-          <div class="menu-item__body">
-            <div class="menu-item__top">
-              <h3 class="menu-item__name"><span class="tag-nonveg" title="Non-veg" aria-label="Non-veg"></span>Mutton Kheema Pizza<span class="badge-chef">★ Chef&rsquo;s Pick</span></h3>
-              <span class="menu-item__dots" aria-hidden="true"></span>
-              <span class="menu-item__price">₹624</span>
-            </div>
-            <p class="menu-item__desc">Crispy thin-crust artisan pizza topped with spiced mutton kheema and bubbling cheese</p>
-          </div>
-        </article>
-        <article class="menu-item">
-          <img class="menu-item__img" src="https://dineinpetweb.gumlet.io/homewebsite/104812/thumb_17816224690_2026_06_16_20_35_43_Tuscan_Chicken.JPG" alt="Tuscan Chicken" loading="lazy">
-          <div class="menu-item__body">
-            <div class="menu-item__top">
-              <h3 class="menu-item__name"><span class="tag-nonveg" title="Non-veg" aria-label="Non-veg"></span>Tuscan Chicken<span class="badge-chef">★ Chef&rsquo;s Pick</span></h3>
-              <span class="menu-item__dots" aria-hidden="true"></span>
-              <span class="menu-item__price">₹604</span>
-            </div>
-            <p class="menu-item__desc">Chicken in a creamy parmesan, garlic and spinach sauce</p>
-          </div>
-        </article>
-        <article class="menu-item">
-          <img class="menu-item__img" src="https://dineinpetweb.gumlet.io/homewebsite/104812/thumb_17568363720_2025_09_02_23_35_59_cef472dc_c2f2_4037_bedf_49bea1bb7fb2.jpg" alt="Classic Cold Coffee" loading="lazy">
-          <div class="menu-item__body">
-            <div class="menu-item__top">
-              <h3 class="menu-item__name"><span class="tag-veg" title="Veg" aria-label="Veg"></span>Classic Cold Coffee<span class="badge-chef">★ Chef&rsquo;s Pick</span></h3>
-              <span class="menu-item__dots" aria-hidden="true"></span>
-              <span class="menu-item__price">₹344</span>
-            </div>
-            <p class="menu-item__desc">Smooth, creamy, perfectly chilled, the signature cold coffee</p>
-          </div>
-        </article>
-      </div>
-    </div>
-    <p class="menu-note">Prices inclusive of presentation, exclusive of taxes. Live ordering on Zomato District and Swiggy Dineout.</p>
+  <!-- ===== Menu ===== -->
+  <main class="container section" style="padding-top:24px">
+    <div data-menu></div>
+    <p class="menu-note">Prices inclusive of presentation, exclusive of taxes — live ordering on Zomato District &amp; Swiggy Dineout.</p>
   </main>
 
   <!-- ===== Footer ===== -->
-  <footer class="footer" id="franchise">
-  <div class="container footer__grid">
-    <div class="grid grid--4">
-      <div>
-        <span class="script">La Sabroso</span>
-        <p class="footer__blurb">A sensory sanctuary in Madhapur, Hyderabad. Italian elegance meets Indian spice, open daily 11 AM to 11 PM.</p>
-        <div class="rating" aria-label="Rated 4.3 out of 5 on Zomato"><span class="rating__stars">★★★★</span> 4.3 · Zomato</div>
+  <footer class="footer">
+    <div class="container">
+      <div class="grid grid--4">
+        <div>
+          <span class="script">La Sabroso</span>
+          <p class="footer__blurb">Experience the fusion of Italian &amp; Indian flavors in a vibrant Boho Neon setting. The perfect spot for coffee, desserts, and memorable moments.</p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Find Us</h3>
+          <ul>
+            <li>Kavuri Hills Road, Madhapur, Hyderabad 500081</li>
+            <li><a href="tel:+919182801364">+91 9182801364</a></li>
+            <li><a href="mailto:lasabrosocafe2022@gmail.com">lasabrosocafe2022@gmail.com</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Hours &amp; Social</h3>
+          <ul>
+            <li>Mon–Sun 11:00 AM – 11:00 PM</li>
+            <li><a href="https://www.instagram.com/lasabroso_cafe/" target="_blank" rel="noopener">@lasabroso_cafe</a></li>
+            <li>Pet-friendly · Free parking</li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <h3>Explore</h3>
-        <ul>
-          <li><a href="menu.html">Menu</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="events.html">Events</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Find us</h3>
-        <ul>
-          <li>Madhapur, Hyderabad, Telangana 500019</li>
-          <li><a href="tel:+919182801364">+91 9182801364</a></li>
-          <li><a href="mailto:lasabrosocafe2022@gmail.com">lasabrosocafe2022@gmail.com</a></li>
-          <li><a href="https://www.instagram.com/lasabroso_cafe">@lasabroso_cafe</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Hours</h3>
-        <ul>
-          <li class="footer__hours">Mon to Sun</li>
-          <li class="footer__hours">11:00 AM 11:00 PM</li>
-        </ul>
-        <h3>Booking</h3>
-        <ul>
-          <li><a href="https://ig.me/m/lasabroso_cafe">Reserve via Instagram DM</a></li>
-          <li><a href="https://www.zomato.com/hyderabad/la-sabroso-madhapur">Zomato</a></li>
-          <li><a href="https://www.swiggy.com/">Swiggy</a></li>
-        </ul>
+      <div class="footer__bottom">
+        <span>© 2026 La Sabroso, Madhapur</span>
+        <span>Design template — unofficial fan craft</span>
       </div>
     </div>
-    <p class="footer__note">Franchise and bulk-event inquiries welcome, FOCO model. Open daily 11 AM to 11 PM. Fan craft template, not affiliated with the cafe.</p>
-  </div>
-</footer>
+  </footer>
 
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
