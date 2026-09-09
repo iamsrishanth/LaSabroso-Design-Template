@@ -3,158 +3,227 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Find La Sabroso in Madhapur, Hyderabad — Kavuri Hills Road. Open daily 11 AM–11 PM. Call +91 9182801364, DM @lasabroso_cafe, or book a table via Zomato District & Swiggy Dineout.">
-  <title>La Sabroso — Contact</title>
+  <meta name="description" content="Contact La Sabroso in Madhapur, Hyderabad — Kavuri Hills Road. Open daily 11 AM–11 PM. Call +91 9182801364, book a table, or order on Swiggy and District.">
+  <title>Contact, Events &amp; Reservations — La Sabroso | Madhapur, Hyderabad</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;600;700;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
+  <!-- ===== HEADER / NAVIGATION ===== -->
   <nav class="nav">
     <div class="container nav__inner">
-      <a class="nav__logo" href="index.html">La Sabroso</a>
-      <button class="nav__toggle" aria-label="Toggle navigation">☰</button>
+      <a class="nav__logo font-histerm" href="index.html"><img class="nav__logo-icon" src="assets/img/logo.svg" alt="La Sabroso Logo">La<span>Sabroso</span></a>
+      
       <ul class="nav__links">
         <li><a href="index.html">Home</a></li>
         <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">Our Story</a></li>
         <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#events">Events</a></li>
         <li><a href="contact.html" aria-current="page">Contact</a></li>
-        <li><a class="btn btn--filled nav__cta" href="#visit">Book a Table</a></li>
       </ul>
+
+      <div class="nav__actions">
+        <a class="btn btn--swiggy btn-sm" href="https://www.swiggy.com/city/hyderabad/la-sabroso-jubilee-hills-rest1230049" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-bag-shopping"></i> Swiggy</a>
+        <a class="btn btn--filled btn-sm" href="#book">Book a Table</a>
+        <a class="btn btn--outline btn-sm" href="pos.html"><i class="fa-solid fa-cash-register"></i> Staff POS</a>
+      </div>
+
+      <button class="nav__toggle" aria-label="Open Navigation Menu">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
     </div>
   </nav>
 
-  <header class="page-hero">
-    <div class="container">
-      <span class="kicker">La Sabroso</span>
-      <h1>Find Us</h1>
-      <p>Madhapur's Boho Neon corner — walk in, call ahead, or book through your favorite app.</p>
+  <!-- Mobile Overlay Menu -->
+  <div class="mobile-overlay" aria-label="Mobile Navigation Menu">
+    <button class="mobile-overlay__close" aria-label="Close Navigation Menu">&times;</button>
+    <ul class="mobile-overlay__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">Our Story</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="index.html#events">Events</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="pos.html">Staff POS</a></li>
+    </ul>
+    <div class="mobile-overlay__ctas">
+      <a class="btn btn--filled" href="#book">Book a Table</a>
+      <a class="btn btn--swiggy" href="https://www.swiggy.com/city/hyderabad/la-sabroso-jubilee-hills-rest1230049" target="_blank" rel="noopener noreferrer">Order on Swiggy</a>
+      <a class="btn btn--district" href="https://www.district.in/dining/hyderabad/la-sabroso-madhapur" target="_blank" rel="noopener noreferrer">Dine with District</a>
     </div>
-  </header>
+  </div>
 
-  <section class="section" id="visit">
+  <!-- ===== PAGE HERO (Warm Ivory Header) ===== -->
+  <section class="section section--ivory" style="padding-top: 140px; padding-bottom: 50px; text-align: center;">
     <div class="container">
-      <div class="grid grid--2">
+      <span class="eyebrow eyebrow--terracotta">Visit &amp; Connect</span>
+      <h1 class="headline-serif" style="font-size: clamp(38px, 5.5vw, 60px); color: var(--text-dark-primary); margin-bottom: 14px;">Contact &amp; Reservations</h1>
+      <p style="color: var(--text-dark-muted); max-width: 640px; margin: 0 auto 28px; font-size: 17px;">Madhapur's Boho Neon corner — walk in, reserve your table, plan an event, or order online.</p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a class="btn btn--filled" href="#book"><i class="fa-solid fa-chair"></i> Book a Table</a>
+        <a class="btn btn--district" href="https://www.district.in/dining/hyderabad/la-sabroso-madhapur" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-utensils"></i> District Dining</a>
+        <a class="btn btn--swiggy" href="https://www.swiggy.com/city/hyderabad/la-sabroso-jubilee-hills-rest1230049" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-bag-shopping"></i> Swiggy Order</a>
+      </div>
+    </div>
+  </section>
 
-        <div class="card contact-card reveal">
-          <h3>Visit Us</h3>
-          <p>Kavuri Hills Road, Madhapur,<br>Hyderabad 500081</p>
-          <p>Beside Shivaji Military Hotel,<br>opp. Game Point, Hitech City</p>
-          <p><a class="btn btn--outline" href="https://www.google.com/maps/search/?api=1&amp;query=La+Sabroso+Madhapur+Hyderabad" target="_blank" rel="noopener">Open in Google Maps</a></p>
-          <div class="hours-line">
-            <span>Monday – Friday</span>
-            <span>11:00 AM – 11:00 PM</span>
+  <!-- ===== LOCATION & CONTACT CARDS (Warm Cream Light Section) ===== -->
+  <section class="section section--light" id="visit">
+    <div class="container">
+      <div class="location-grid reveal">
+
+        <div class="location-card">
+          <div style="width: 100%; height: 200px; border-radius: var(--r-card); overflow: hidden; margin-bottom: 24px; border: 1px solid var(--border-light-subtle);">
+            <img src="cafe/cafe.webp" alt="La Sabroso Cafe storefront exterior in Madhapur" style="width: 100%; height: 100%; object-fit: cover;">
           </div>
-          <div class="hours-line">
-            <span>Saturday – Sunday</span>
-            <span>11:00 AM – 11:00 PM</span>
+          <h3>Visit Our Café</h3>
+          <div class="location-info">
+            <p><i class="fa-solid fa-location-dot" style="color: var(--c-terracotta); margin-right: 8px;"></i> <strong>Kavuri Hills Road, Madhapur</strong><br>Hyderabad, Telangana 500081</p>
+            <p style="font-size: 13.5px; color: var(--text-dark-muted);"><i class="fa-solid fa-compass" style="margin-right: 6px;"></i> Beside Shivaji Military Hotel, opp. Game Point, Hitech City</p>
+          </div>
+
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px;">
+            <a class="btn btn--filled btn-sm" href="https://www.google.com/maps/search/?api=1&amp;query=La+Sabroso+Madhapur+Hyderabad" target="_blank" rel="noopener noreferrer">Get Google Directions <i class="fa-solid fa-diamond-turn-right"></i></a>
+            <a class="btn btn--outline-dark btn-sm" href="tel:+919182801364"><i class="fa-solid fa-phone"></i> Call +91 9182801364</a>
+          </div>
+
+          <h4 style="font-size: 15px; color: var(--text-dark-primary); margin-bottom: 8px; font-weight: 700;">Opening Hours</h4>
+          <table class="hours-table">
+            <tr>
+              <td>Monday – Sunday</td>
+              <td>11:00 AM – 11:00 PM</td>
+            </tr>
+            <tr>
+              <td>Kitchen Last Order</td>
+              <td>10:30 PM</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="location-card" id="book">
+          <h3>Table Reservations</h3>
+          <p style="color: var(--text-dark-secondary); font-size: 14.5px; margin-bottom: 20px;">Reserve a table for your dining experience. For parties of 10+, we also offer customized group banquet menus.</p>
+
+          <form id="reservationForm" onsubmit="event.preventDefault(); document.getElementById('bookingConfirm').style.display='block'; this.reset();">
+            <div class="form-group">
+              <label class="form-label" for="bookName">Full Name</label>
+              <input class="form-control" type="text" id="bookName" placeholder="Your name" required>
+            </div>
+            <div class="form-row-2col">
+              <div class="form-group">
+                <label class="form-label" for="bookPhone">Phone Number</label>
+                <input class="form-control" type="tel" id="bookPhone" placeholder="+91 98765 43210" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="bookGuests">Guests</label>
+                <select class="form-control" id="bookGuests">
+                  <option>1-2 Guests</option>
+                  <option>3-4 Guests</option>
+                  <option>5-8 Guests</option>
+                  <option>10+ (Party / Event)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row-2col">
+              <div class="form-group">
+                <label class="form-label" for="bookDate">Date</label>
+                <input class="form-control" type="date" id="bookDate" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="bookTime">Time</label>
+                <input class="form-control" type="time" id="bookTime" required>
+              </div>
+            </div>
+            <button type="submit" class="btn btn--filled" style="width: 100%; margin-top: 10px;">Confirm Reservation <i class="fa-solid fa-check"></i></button>
+          </form>
+
+          <div id="bookingConfirm" style="display: none; margin-top: 18px; padding: 14px; background: rgba(46, 125, 50, 0.1); border: 1.5px solid var(--c-veg); border-radius: var(--r-sm); color: var(--c-veg); font-weight: 700; text-align: center;">
+            ✓ Reservation request received! Our team will call to confirm within 15 minutes.
           </div>
         </div>
 
-        <div class="card contact-card reveal">
-          <h3>Talk To Us</h3>
-          <p>Phone: <a href="tel:+919182801364">+91 9182801364</a></p>
-          <p>Email: <a href="mailto:lasabrosocafe2022@gmail.com">lasabrosocafe2022@gmail.com</a></p>
-          <p>Instagram: <a href="https://www.instagram.com/lasabroso_cafe/" target="_blank" rel="noopener">@lasabroso_cafe</a></p>
-          <p>Live menu: <a href="https://tronx.co.in/lasabraso-19/" target="_blank" rel="noopener">Scan-style live menu</a></p>
-          <p><small>Franchise inquiries (FOCO model): <a href="mailto:lasabrosocafe2022@gmail.com">lasabrosocafe2022@gmail.com</a></small></p>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <section class="section section--alt">
+  <!-- ===== ORDER ONLINE SECTION ===== -->
+  <section class="section section--darker">
     <div class="container">
-      <div class="section-heading">
-        <span class="kicker">Good to know</span>
-        <h2>Before you come</h2>
-      </div>
-      <div class="amenities">
-        <span class="amenity">🐾 Pet-friendly</span>
-        <span class="amenity">🚗 Free parking</span>
-        <span class="amenity">🎵 Live music</span>
-        <span class="amenity">🌿 Outdoor seating</span>
-        <span class="amenity">❄️ Air conditioned</span>
-        <span class="amenity">💳 Digital payments</span>
-      </div>
-      <div class="container">
-        <div class="card specialty">
-          <h2>4.3 ★</h2>
-          <p><small>1,158 dining ratings on Zomato</small></p>
-          <p>₹1,200–₹2,000 for two</p>
+      <div class="order-online-box reveal">
+        <div class="order-online-box__content">
+          <span class="eyebrow">Online Ordering &amp; Dining Deals</span>
+          <h2>HUNGRY?<br>ORDER YOUR LA SABROSO FAVORITES.</h2>
+          <p>Order fresh thin-crust pizzas, pastas, burgers, and artisan cold brews directly to your location, or reserve through District for guaranteed perks.</p>
+          <div class="order-online-actions">
+            <a class="btn btn--swiggy" href="https://www.swiggy.com/city/hyderabad/la-sabroso-jubilee-hills-rest1230049" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-bag-shopping"></i> ORDER ON SWIGGY
+            </a>
+            <a class="btn btn--district" href="https://www.district.in/dining/hyderabad/la-sabroso-madhapur" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-utensils"></i> DINE WITH DISTRICT
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-heading">
-        <span class="kicker">Reserve</span>
-        <h2>Book your table</h2>
-      </div>
-      <div class="grid grid--2">
-        <a class="card partner partner--district reveal" href="https://www.zomato.com/hyderabad/la-sabroso-madhapur" target="_blank" rel="noopener">
-          <span class="partner__logo">D</span>
-          <span>
-            <h3>Zomato District</h3>
-            <p>Dine-in / Offers</p>
-          </span>
-        </a>
-        <a class="card partner partner--dineout reveal" href="https://www.swiggy.com/dineout" target="_blank" rel="noopener">
-          <span class="partner__logo">DO</span>
-          <span>
-            <h3>Swiggy Dineout</h3>
-            <p>Dine-in / Offers</p>
-          </span>
-        </a>
-      </div>
-      <div class="container specialty">
-        <p>Prefer delivery? <a href="https://www.zomato.com/hyderabad/la-sabroso-madhapur/order" target="_blank" rel="noopener">Zomato</a> · <a href="https://www.swiggy.com" target="_blank" rel="noopener">Swiggy</a></p>
-      </div>
-    </div>
-  </section>
-
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
-    <div class="container grid grid--4">
-      <div>
-        <span class="script">La Sabroso</span>
-        <p class="footer__blurb">Feed your spirit. Feed your belly. Feed your soul. A sophisticated blend of Italian elegance and Indian spice — right in the heart of Madhapur.</p>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo font-histerm"><img class="footer-logo-icon" src="assets/img/logo.svg" alt="La Sabroso Logo">La<span>Sabroso</span></div>
+          <p style="font-size: 14.5px; color: #DDD3C7; max-width: 320px; line-height: 1.7;">Feed your spirit. Feed your belly. Feed your soul. A sophisticated blend of Italian elegance and Indian spice in Madhapur, Hyderabad.</p>
+          <div style="margin-top: 18px; display: flex; gap: 12px;">
+            <a class="btn btn--swiggy btn-sm" href="https://www.swiggy.com/city/hyderabad/la-sabroso-jubilee-hills-rest1230049" target="_blank" rel="noopener noreferrer">Order on Swiggy</a>
+            <a class="btn btn--district btn-sm" href="https://www.district.in/dining/hyderabad/la-sabroso-madhapur" target="_blank" rel="noopener noreferrer">District Dining</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Full Menu</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="index.html#events">Events &amp; Private Parties</a></li>
+            <li><a href="#book">Book a Table</a></li>
+            <li><a href="pos.html">Staff POS Portal</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Location &amp; Contact</h4>
+          <ul>
+            <li>Kavuri Hills Road, Madhapur, Hyderabad 500081</li>
+            <li>Phone: <a href="tel:+919182801364" style="color: #FFFFFF; font-weight: 700;">+91 9182801364</a></li>
+            <li>Email: <a href="mailto:lasabrosocafe2022@gmail.com" style="color: #FFFFFF;">lasabrosocafe2022@gmail.com</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=La+Sabroso+Madhapur+Hyderabad" target="_blank" rel="noopener noreferrer" style="color: var(--c-gold);"><i class="fa-solid fa-diamond-turn-right"></i> Get Google Directions</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Hours &amp; Social</h4>
+          <ul>
+            <li>Mon–Sun: 11:00 AM – 11:00 PM</li>
+            <li>Instagram: <a href="https://www.instagram.com/lasabroso_cafe/" target="_blank" rel="noopener noreferrer" style="color: var(--c-gold);">@lasabroso_cafe</a></li>
+            <li>Pet-friendly · Free Parking · Live Music</li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="menu.html">Menu</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+
+      <div class="footer-bottom">
+        <span>© 2026 LA SABROSO, Madhapur, Hyderabad. All rights reserved.</span>
+        <span>Italian Soul · Indian Character · Artisan Cafe Culture</span>
       </div>
-      <div>
-        <h3>Find Us</h3>
-        <ul>
-          <li>Kavuri Hills Road, Madhapur</li>
-          <li>Hyderabad 500081</li>
-          <li><a href="tel:+919182801364">+91 9182801364</a></li>
-          <li><a href="mailto:lasabrosocafe2022@gmail.com">lasabrosocafe2022@gmail.com</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Hours &amp; Social</h3>
-        <ul>
-          <li>Mon–Sun: 11:00 AM – 11:00 PM</li>
-          <li><a href="https://www.instagram.com/lasabroso_cafe/" target="_blank" rel="noopener">@lasabroso_cafe</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="container footer__bottom">
-      <span>© 2026 La Sabroso, Madhapur</span>
-      <span>Design template — unofficial fan craft</span>
     </div>
   </footer>
 

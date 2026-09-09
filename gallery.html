@@ -3,178 +3,356 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery — La Sabroso · Boho Neon Cafe in Madhapur</title>
-  <meta name="description" content="Moments from La Sabroso, Madhapur — chandelier glow, latte art, liquid-nitrogen gelato and plates worth the wait in our Boho Neon corner of Hyderabad.">
+  <title>Gallery — La Sabroso | Visual Diary of Food & Cafe in Madhapur</title>
+  <meta name="description" content="Moments from La Sabroso, Madhapur — real photos of hand-tossed pizzas, artisan cold brews, decadent desserts, and our warm Boho Neon cafe ambience.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Nunito:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
+  <!-- ===== HEADER / NAVIGATION ===== -->
   <nav class="nav">
     <div class="container nav__inner">
-      <a class="nav__logo" href="index.html">La Sabroso</a>
+      <a class="nav__logo font-histerm" href="index.html"><img class="nav__logo-icon" src="assets/img/logo.svg" alt="La Sabroso Logo">La<span>Sabroso</span></a>
+      
       <ul class="nav__links">
         <li><a href="index.html">Home</a></li>
         <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">Our Story</a></li>
         <li><a href="gallery.html" aria-current="page">Gallery</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#events">Events</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <a class="btn btn--filled nav__cta" href="contact.html">Book a Table</a>
-      <button class="nav__toggle" aria-label="Menu">☰</button>
+
+      <div class="nav__actions">
+        <a class="btn btn--swiggy btn-sm" href="https://www.swiggy.com/city/hyderabad/la-sabroso-jubilee-hills-rest1230049" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-bag-shopping"></i> Swiggy</a>
+        <a class="btn btn--filled btn-sm" href="contact.html#book">Book a Table</a>
+        <a class="btn btn--outline btn-sm" href="pos.html"><i class="fa-solid fa-cash-register"></i> Staff POS</a>
+      </div>
+
+      <button class="nav__toggle" aria-label="Open Navigation Menu">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
     </div>
   </nav>
 
-  <header class="page-hero">
+  <!-- Mobile Overlay Menu -->
+  <div class="mobile-overlay" aria-label="Mobile Navigation Menu">
+    <button class="mobile-overlay__close" aria-label="Close Navigation Menu">&times;</button>
+    <ul class="mobile-overlay__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">Our Story</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="index.html#events">Events</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="pos.html">Staff POS</a></li>
+    </ul>
+    <div class="mobile-overlay__ctas">
+      <a class="btn btn--filled" href="contact.html#book">Book a Table</a>
+      <a class="btn btn--swiggy" href="https://www.swiggy.com/city/hyderabad/la-sabroso-jubilee-hills-rest1230049" target="_blank" rel="noopener noreferrer">Order on Swiggy</a>
+      <a class="btn btn--district" href="https://www.district.in/dining/hyderabad/la-sabroso-madhapur" target="_blank" rel="noopener noreferrer">Dine with District</a>
+    </div>
+  </div>
+
+  <!-- ===== PAGE HERO (Warm Ivory Header) ===== -->
+  <section class="section section--ivory" style="padding-top: 140px; padding-bottom: 40px; text-align: center;">
     <div class="container">
-      <span class="kicker">La Sabroso</span>
-      <h1>Moments</h1>
-      <p>Chandelier glow, latte art, and plates worth the wait — inside our Boho Neon corner of Madhapur.</p>
+      <span class="eyebrow eyebrow--terracotta">Visual Diary</span>
+      <h1 class="headline-serif" style="font-size: clamp(30px, 5.5vw, 60px); color: var(--text-dark-primary); margin-bottom: 14px;">Moments @ La Sabroso</h1>
+      <p style="color: var(--text-dark-muted); max-width: 640px; margin: 0 auto 30px; font-size: 16px;">A showcase of our signature dishes, artisan beverages, and warm Boho Neon cafe corners in Madhapur.</p>
+
+      <!-- Category Filters -->
+      <div class="gallery-filters">
+        <button class="gallery-filter-btn active" data-filter="all">All Moments <span class="count">(18)</span></button>
+        <button class="gallery-filter-btn" data-filter="cafe">Cafe Ambience <span class="count">(9)</span></button>
+        <button class="gallery-filter-btn" data-filter="food">Signature Dishes <span class="count">(6)</span></button>
+        <button class="gallery-filter-btn" data-filter="drinks">Brews &amp; Desserts <span class="count">(3)</span></button>
+      </div>
     </div>
-  </header>
+  </section>
 
-  <main>
-    <section class="section">
-      <div class="container">
-        <div class="masonry">
-          <figure>
-            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=800&auto=format&fit=crop" alt="Warm evening light across the cafe bar, bottles glowing" loading="lazy" data-lightbox>
-            <figcaption>The bar, mid-evening</figcaption>
-          </figure>
-          <figure>
-            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop" alt="Long dining tables set before the dinner rush" loading="lazy" data-lightbox>
-            <figcaption>Set for the dinner rush</figcaption>
-          </figure>
-          <figure>
-            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=800&auto=format&fit=crop" alt="A plated dessert finished with berries and a dusting of cocoa" loading="lazy" data-lightbox>
-            <figcaption>Dessert, plated with intent</figcaption>
-          </figure>
-          <figure>
-            <img src="https://images.unsplash.com/photo-1485182708500-e8f1f318ba72?q=80&w=800&auto=format&fit=crop" alt="Friends laughing together over a full table" loading="lazy" data-lightbox>
-            <figcaption>Friends, and a full table</figcaption>
-          </figure>
-          <figure>
-            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=800&auto=format&fit=crop" alt="Fresh pizza with bubbling cheese straight from the oven" loading="lazy" data-lightbox>
-            <figcaption>Pizza, oven-hot</figcaption>
-          </figure>
-          <figure>
-            <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?q=80&w=800&auto=format&fit=crop" alt="A tall stack of pancakes layered with cream and berries" loading="lazy" data-lightbox>
-            <figcaption>The dessert tower</figcaption>
-          </figure>
-          <figure>
-            <img src="https://images.unsplash.com/photo-1514362545857-3bc16549766b?q=80&w=800&auto=format&fit=crop" alt="A crafted drink garnished and ready at the counter" loading="lazy" data-lightbox>
-            <figcaption>Crafted at the counter</figcaption>
-          </figure>
-          <figure>
-            <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=800&auto=format&fit=crop" alt="A tall iced beverage with condensation on the glass" loading="lazy" data-lightbox>
-            <figcaption>Iced and slow-sipped</figcaption>
-          </figure>
-          <figure>
-            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop" alt="Top-down view of latte art in a ceramic cup" loading="lazy" data-lightbox>
-            <figcaption>Latte art, top down</figcaption>
-          </figure>
-          <figure>
-            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800&auto=format&fit=crop" alt="A coffee cup resting on a wooden cafe table" loading="lazy" data-lightbox>
-            <figcaption>First cup of the day</figcaption>
-          </figure>
-          <figure>
-            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=800&auto=format&fit=crop" alt="An elegant fine-dining plate arranged under warm light" loading="lazy" data-lightbox>
-            <figcaption>From the chef's pass</figcaption>
-          </figure>
-          <figure>
-            <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=800&auto=format&fit=crop" alt="A coffee beside an open book near the window" loading="lazy" data-lightbox>
-            <figcaption>Coffee and a slow read</figcaption>
-          </figure>
-          <figure>
-            <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?q=80&w=800&auto=format&fit=crop" alt="The favourite window seat bathed in soft afternoon light" loading="lazy" data-lightbox>
-            <figcaption>The window seat</figcaption>
-          </figure>
-          <figure>
-            <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=800&auto=format&fit=crop" alt="The cafe storefront glowing as evening settles in" loading="lazy" data-lightbox>
-            <figcaption>Storefront glow</figcaption>
-          </figure>
-          <figure>
-            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=800&auto=format&fit=crop" alt="A slow pour-over brewing drip by drip" loading="lazy" data-lightbox>
-            <figcaption>Pour over, drip by drip</figcaption>
-          </figure>
-          <figure>
-            <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?q=80&w=800&auto=format&fit=crop" alt="Cafe tables laid out under open sky" loading="lazy" data-lightbox>
-            <figcaption>Tables under open sky</figcaption>
-          </figure>
+  <!-- ===== GALLERY SECTION (Warm Cream Light Section) ===== -->
+  <section class="section section--light" style="padding-top: 20px; padding-bottom: 60px;">
+    <div class="container">
+      
+      <!-- CAFE AMBIENCE PROPER GRID -->
+      <div class="gallery-group" data-category="cafe">
+        <div class="gallery-subhead">
+          <span class="eyebrow eyebrow--terracotta">Boho Neon Interiors</span>
+          <h2>Cafe Ambience &amp; Spaces</h2>
+          <p>Step inside our Madhapur sanctuary — sculpted wave murals, radiant bohemian chandeliers, sunlit arch booths, and warm evening lighting.</p>
+        </div>
+
+        <div class="gallery-grid-clean">
+          <div class="gallery-card" data-lightbox data-caption="La Sabroso Grand Dining Hall & Illuminated Bar Counter">
+            <img src="cafe/cafe.webp" alt="La Sabroso Grand Dining Hall" loading="lazy">
+            <div class="gallery-card__overlay">
+              <span class="gallery-card__tag">Main Hall</span>
+              <div class="gallery-card__title">Grand Dining Hall &amp; Bar Counter</div>
+              <p class="gallery-card__desc">Illuminated statement bar with bohemian woven chandeliers and organic wave architecture.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-lightbox data-caption="Sculpted Wall Murals & Evening Ambiance">
+            <img src="cafe/cafe_dining_3.jpg" alt="Sculpted Wall Murals & Evening Glow" loading="lazy">
+            <div class="gallery-card__overlay">
+              <span class="gallery-card__tag">Ambiance</span>
+              <div class="gallery-card__title">Sculpted Wall Murals &amp; Evening Glow</div>
+              <p class="gallery-card__desc">Soft warm light washing over hand-carved spiral wall textures and cafe tables.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-lightbox data-caption="Sunlit Arched Booths & Cozy Dining Nooks">
+            <img src="cafe/58303211-1cdb-411e-b353-e416e164bdd1_image6e1ae336057b44952b40b95c1139b7568.webp" alt="Sunlit Arched Booths" loading="lazy">
+            <div class="gallery-card__overlay">
+              <span class="gallery-card__tag">Seating</span>
+              <div class="gallery-card__title">Sunlit Arched Booths &amp; Nooks</div>
+              <p class="gallery-card__desc">Cathedral-style curved window alcoves with woven armchairs and natural daylight.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-lightbox data-caption="Elevated Dining Lounge & Ambient Warm Lighting">
+            <img src="cafe/fffb8553-1c8d-4fa4-8efa-35f60fb694ed_image168bde1b048b842908e755531911fc36d.webp" alt="Elevated Dining Lounge" loading="lazy">
+            <div class="gallery-card__overlay">
+              <span class="gallery-card__tag">Lounge</span>
+              <div class="gallery-card__title">Elevated Dining Lounge</div>
+              <p class="gallery-card__desc">Raised platform dining surrounded by flowing relief walls and soft fairy lights.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-lightbox data-caption="Architectural Wave Murals & Patterned Terrazzo Flooring">
+            <img src="cafe/restaurant069cb9cb81708e.webp" alt="Architectural Wave Murals" loading="lazy">
+            <div class="gallery-card__overlay">
+              <span class="gallery-card__tag">Architecture</span>
+              <div class="gallery-card__title">Wave Murals &amp; Terrazzo Floor</div>
+              <p class="gallery-card__desc">Overhead perspective showcasing organic wall relief and mosaic tile geometry.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-lightbox data-caption="Group Gathering Table with Woven Armchairs">
+            <img src="cafe/ab97b350-06b8-427f-8e48-a63548cdb9e2_image86ae698dabc644317a735c634dee8ba9c.webp" alt="Group Gathering Table" loading="lazy">
+            <div class="gallery-card__overlay">
+              <span class="gallery-card__tag">Group Seating</span>
+              <div class="gallery-card__title">Group Gathering Table</div>
+              <p class="gallery-card__desc">Long dining table for celebrations, team lunches, and casual family reunions.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-lightbox data-caption="Intimate Corner Tables & Pampas Grass Accents">
+            <img src="cafe/a1fb7a80-74bf-4a80-a339-3885c9daae81_image064ab8a2199d24def8a7d5ff8ac217062.webp" alt="Intimate Corner Tables" loading="lazy">
+            <div class="gallery-card__overlay">
+              <span class="gallery-card__tag">Cozy Corner</span>
+              <div class="gallery-card__title">Intimate Corner Seating</div>
+              <p class="gallery-card__desc">Tucked-away tables featuring rustic pampas grass centerpieces and plush throw cushions.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-lightbox data-caption="Minimalist Boho Dining Table Setting">
+            <img src="cafe/1.webp" alt="Minimalist Boho Dining Table" loading="lazy">
+            <div class="gallery-card__overlay">
+              <span class="gallery-card__tag">Table Setting</span>
+              <div class="gallery-card__title">Minimalist Boho Setting</div>
+              <p class="gallery-card__desc">Earthy white ceramic pedestals with handcrafted wooden caddies and dried botanicals.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-lightbox data-caption="Artisan Wooden Table Decor & Dining Setup">
+            <img src="cafe/cafe_dining_1.jpg" alt="Artisan Table Decor" loading="lazy">
+            <div class="gallery-card__overlay">
+              <span class="gallery-card__tag">Details</span>
+              <div class="gallery-card__title">Artisan Table Decor &amp; Service</div>
+              <p class="gallery-card__desc">Curated wooden tableware, amber glassware, and Mediterranean touches at every table.</p>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
 
-    <section class="section section--alt">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="kicker">From our Instagram</span>
-          <h2>Highlights, off the feed</h2>
-          <p>Three things our regulars never stop tagging us in.</p>
+      <!-- CULINARY & DRINKS PROPER GRID -->
+      <div class="gallery-group" data-category="food-drinks">
+        <div class="gallery-subhead" style="margin-top: 20px;">
+          <span class="eyebrow eyebrow--terracotta">From Our Kitchen &amp; Bar</span>
+          <h2>Signature Dishes &amp; Artisan Sips</h2>
+          <p>Hand-stretched pizzas, luscious pastas, crispy starters, and slow cold brews prepared with passion.</p>
         </div>
-        <div class="grid grid--3">
-          <div class="card reveal">
-            <h3>Ice Cream Lab</h3>
-            <p>Liquid-nitrogen gelato made to order — fresh cream frozen in a rolling cloud of fog, right at your table. The smoothest scoop in Madhapur, and the most photographed.</p>
+
+        <div class="gallery-grid-clean">
+          <div class="gallery-card" data-category="food" data-lightbox data-caption="Crispy thin-crust Peppy Paneer Pizza">
+            <img src="Food/Peppy Paneer Pizza.avif" alt="Peppy Paneer Pizza" loading="lazy">
+            <div class="gallery-card__overlay">
+              <span class="gallery-card__tag">Pizza</span>
+              <div class="gallery-card__title">Peppy Paneer Pizza</div>
+              <p class="gallery-card__desc">Crispy thin crust with spicy marinated paneer, bell peppers, and melted mozzarella.</p>
+            </div>
           </div>
-          <div class="card reveal">
-            <h3>Laso Delights</h3>
-            <p>The chef's seasonal specials board. It changes when the market changes — ask your server what's on it today, because it rarely repeats twice.</p>
+
+          <div class="gallery-card" data-category="food" data-lightbox data-caption="Tuscan Marry Me Chicken in sun-dried tomato cream">
+            <img src="Food/Marry me chicken.avif" alt="Marry Me Chicken" loading="lazy">
+            <div class="gallery-card__overlay">
+              <span class="gallery-card__tag">Main Course</span>
+              <div class="gallery-card__title">Marry Me Chicken</div>
+              <p class="gallery-card__desc">Succulent chicken simmered in rich sun-dried tomato cream sauce with parmesan.</p>
+            </div>
           </div>
-          <div class="card reveal">
-            <h3>Desserts</h3>
-            <p>Brownies, cheesecakes and more, baked in small batches through the day. Come late and the counter might be bare — that is the review we are proudest of.</p>
+
+          <div class="gallery-card" data-category="food" data-lightbox data-caption="Signature Masala Mafia Pasta">
+            <img src="Food/Veg Masala Mafia Pasta.avif" alt="Veg Masala Mafia Pasta" loading="lazy">
+            <div class="gallery-card__overlay">
+              <span class="gallery-card__tag">Pasta</span>
+              <div class="gallery-card__title">Masala Mafia Pasta</div>
+              <p class="gallery-card__desc">Penne tossed in our famous spicy Indian-Italian fusion cream sauce with garlic toast.</p>
+            </div>
           </div>
-        </div>
-        <div class="section-heading reveal">
-          <a class="btn btn--filled" href="https://www.instagram.com/lasabroso_cafe/" target="_blank" rel="noopener">Follow @lasabroso_cafe</a>
+
+          <div class="gallery-card" data-category="food" data-lightbox data-caption="Cheesy Chicken Burger with golden fries">
+            <img src="Food/Chessy Chicken Burger.avif" alt="Cheesy Chicken Burger" loading="lazy">
+            <div class="gallery-card__overlay">
+              <span class="gallery-card__tag">Burgers</span>
+              <div class="gallery-card__title">Cheesy Chicken Burger</div>
+              <p class="gallery-card__desc">Crispy fried chicken patty topped with molten cheddar cheese and seasoned fries.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-category="food" data-lightbox data-caption="Honey Lemon Pepper Chicken Tenders">
+            <img src="Food/Honey Lemon Pepper Tenders.avif" alt="Honey Lemon Pepper Tenders" loading="lazy">
+            <div class="gallery-card__overlay">
+              <span class="gallery-card__tag">Starters</span>
+              <div class="gallery-card__title">Honey Lemon Pepper Tenders</div>
+              <p class="gallery-card__desc">Crispy golden tenders drizzled with sticky honey lemon glaze and freshly cracked pepper.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-category="food" data-lightbox data-caption="Roasted Tomato Soup with Crisp Cheese Toast">
+            <img src="Food/Roasted Tomato Soup With Cheese Toast.avif" alt="Roasted Tomato Soup With Cheese Toast" loading="lazy">
+            <div class="gallery-card__overlay">
+              <span class="gallery-card__tag">Soups</span>
+              <div class="gallery-card__title">Roasted Tomato Soup &amp; Toast</div>
+              <p class="gallery-card__desc">Velvety slow-roasted vine tomato soup drizzled with cream, served with golden cheese toast.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-category="drinks" data-lightbox data-caption="Artisan Blueberry Cheesecake">
+            <img src="Food/Blue Berry Cheese Cake.avif" alt="Blueberry Cheesecake" loading="lazy">
+            <div class="gallery-card__overlay">
+              <span class="gallery-card__tag">Desserts</span>
+              <div class="gallery-card__title">Artisan Blueberry Cheesecake</div>
+              <p class="gallery-card__desc">Rich New York-style cheesecake with slow-simmered whole blueberry compote.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-category="drinks" data-lightbox data-caption="Lotus Biscoff Cold Coffee">
+            <img src="Food/Lotus Biscoff Cold Coffee.avif" alt="Lotus Biscoff Cold Coffee" loading="lazy">
+            <div class="gallery-card__overlay">
+              <span class="gallery-card__tag">Beverages</span>
+              <div class="gallery-card__title">Lotus Biscoff Cold Coffee</div>
+              <p class="gallery-card__desc">Espresso blended with creamy Lotus Biscoff spread, topped with crunchy biscuit crumbles.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-category="drinks" data-lightbox data-caption="Parisian French Hot Chocolate">
+            <img src="Food/French Hot Chocolate.avif" alt="French Hot Chocolate" loading="lazy">
+            <div class="gallery-card__overlay">
+              <span class="gallery-card__tag">Beverages</span>
+              <div class="gallery-card__title">French Hot Chocolate</div>
+              <p class="gallery-card__desc">Dense, velvety Parisian melted dark chocolate served with a crisp biscuit ladyfinger.</p>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
-  </main>
 
-  <div class="lightbox" role="dialog" aria-label="Photo viewer"><button class="lightbox__close" aria-label="Close">×</button><img src="" alt=""></div>
+      <div style="text-align: center; margin-top: 48px;">
+        <a class="btn btn--filled" href="menu.html">View Our Full Menu <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
 
+  <!-- ===== ORDER ONLINE SECTION ===== -->
+  <section class="section section--darker">
+    <div class="container">
+      <div class="order-online-box reveal">
+        <div class="order-online-box__content">
+          <span class="eyebrow">Direct Dining &amp; Delivery</span>
+          <h2>HUNGRY?<br>ORDER YOUR LA SABROSO FAVORITES.</h2>
+          <p>Fresh Italian-Indian fusion dishes, artisan coffees and decadent desserts delivered to you.</p>
+          <div class="order-online-actions">
+            <a class="btn btn--swiggy" href="https://www.swiggy.com/city/hyderabad/la-sabroso-jubilee-hills-rest1230049" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-bag-shopping"></i> ORDER ON SWIGGY
+            </a>
+            <a class="btn btn--district" href="https://www.district.in/dining/hyderabad/la-sabroso-madhapur" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-utensils"></i> DINE WITH DISTRICT
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
-    <div class="container grid grid--4">
-      <div>
-        <span class="script">La Sabroso</span>
-        <p class="footer__blurb">Experience the fusion of Italian &amp; Indian flavors in a vibrant Boho Neon setting — right in the heart of Madhapur.</p>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo font-histerm"><img class="footer-logo-icon" src="assets/img/logo.svg" alt="La Sabroso Logo">La<span>Sabroso</span></div>
+          <p style="font-size: 14.5px; color: #DDD3C7; max-width: 320px; line-height: 1.7;">Feed your spirit. Feed your belly. Feed your soul. A sophisticated blend of Italian elegance and Indian spice in Madhapur, Hyderabad.</p>
+          <div style="margin-top: 18px; display: flex; gap: 12px;">
+            <a class="btn btn--swiggy btn-sm" href="https://www.swiggy.com/city/hyderabad/la-sabroso-jubilee-hills-rest1230049" target="_blank" rel="noopener noreferrer">Order on Swiggy</a>
+            <a class="btn btn--district btn-sm" href="https://www.district.in/dining/hyderabad/la-sabroso-madhapur" target="_blank" rel="noopener noreferrer">District Dining</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Full Menu</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="index.html#events">Events &amp; Private Parties</a></li>
+            <li><a href="contact.html#book">Book a Table</a></li>
+            <li><a href="pos.html">Staff POS Portal</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Location &amp; Contact</h4>
+          <ul>
+            <li>Kavuri Hills Road, Madhapur, Hyderabad 500081</li>
+            <li>Phone: <a href="tel:+919182801364" style="color: #FFFFFF; font-weight: 700;">+91 9182801364</a></li>
+            <li>Email: <a href="mailto:lasabrosocafe2022@gmail.com" style="color: #FFFFFF;">lasabrosocafe2022@gmail.com</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=La+Sabroso+Madhapur+Hyderabad" target="_blank" rel="noopener noreferrer" style="color: var(--c-gold);"><i class="fa-solid fa-diamond-turn-right"></i> Get Google Directions</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Hours &amp; Social</h4>
+          <ul>
+            <li>Mon–Sun: 11:00 AM – 11:00 PM</li>
+            <li>Instagram: <a href="https://www.instagram.com/lasabroso_cafe/" target="_blank" rel="noopener noreferrer" style="color: var(--c-gold);">@lasabroso_cafe</a></li>
+            <li>Pet-friendly · Free Parking · Live Music</li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="menu.html">Menu</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+
+      <div class="footer-bottom">
+        <span>© 2026 LA SABROSO, Madhapur, Hyderabad. All rights reserved.</span>
+        <span>Italian Soul · Indian Character · Artisan Cafe Culture</span>
       </div>
-      <div>
-        <h3>Find Us</h3>
-        <ul>
-          <li>Kavuri Hills Road, Madhapur, Hyderabad 500081</li>
-          <li><a href="tel:+919182801364">+91 9182801364</a></li>
-          <li><a href="mailto:lasabrosocafe2022@gmail.com">lasabrosocafe2022@gmail.com</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Hours &amp; Social</h3>
-        <ul>
-          <li>Mon–Sun · 11:00 AM – 11:00 PM</li>
-          <li><a href="https://www.instagram.com/lasabroso_cafe/" target="_blank" rel="noopener">@lasabroso_cafe</a></li>
-          <li>Pet-friendly · Free parking</li>
-        </ul>
-      </div>
-    </div>
-    <div class="container footer__bottom">
-      <span>© 2026 La Sabroso, Madhapur</span>
-      <span>Design template — unofficial fan craft</span>
     </div>
   </footer>
+
+  <!-- ===== LIGHTBOX MODAL ===== -->
+  <div class="lightbox" role="dialog" aria-label="Photo viewer">
+    <button class="lightbox__close" aria-label="Close photo modal">&times;</button>
+    <button class="lightbox__prev" aria-label="Previous photo"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="lightbox__next" aria-label="Next photo"><i class="fa-solid fa-chevron-right"></i></button>
+    <img class="lightbox__img" src="" alt="">
+    <div class="lightbox__caption"></div>
+  </div>
 
   <script src="assets/js/main.js" defer></script>
 </body>

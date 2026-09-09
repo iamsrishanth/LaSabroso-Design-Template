@@ -1,196 +1,342 @@
-/* La Sabroso — shared JS: nav toggle, reveal-on-scroll, menu filters/search,
-   testimonial carousel, lightbox. Vanilla, no dependencies. */
+/* ==========================================================================
+   La Sabroso Café — Shared Engine & Data-Driven Restaurant Menu Renderer
+   - Data-Driven Menu Renderer from window.MENU_DATA / src/data/menu.js
+   - Compact Restaurant Menu Rows with hover interactions
+   - Category Tabs & Real-time Live Search
+   - Interactive Lightbox & Sticky Header
+   ========================================================================== */
+
 (function () {
   'use strict';
 
-  /* Mark JS active so reveal animation only hides when JS can re-show */
   document.documentElement.classList.add('js');
 
-  /* ---------- sticky nav mobile toggle ---------- */
-  const toggle = document.querySelector('.nav__toggle');
-  const links = document.querySelector('.nav__links');
-  if (toggle && links) {
-    toggle.addEventListener('click', () => links.classList.toggle('open'));
+  /* ---------- Sticky Nav Scroll Effect ---------- */
+  const nav = document.querySelector('.nav');
+  if (nav) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    }, { passive: true });
   }
 
-  /* ---------- reveal on scroll (progressive enhancement; JS sets hidden state inline) ---------- */
+  /* ---------- Mobile Drawer Navigation ---------- */
+  const toggle = document.querySelector('.nav__toggle');
+  const overlay = document.querySelector('.mobile-overlay');
+  const overlayClose = document.querySelector('.mobile-overlay__close');
+
+  const openDrawer = () => {
+    if (overlay) {
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      if (toggle) toggle.setAttribute('aria-expanded', 'true');
+    }
+  };
+
+  const closeDrawer = () => {
+    if (overlay) {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    }
+  };
+
+  if (toggle) {
+    toggle.addEventListener('click', openDrawer);
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-haspopup', 'dialog');
+  }
+  if (overlayClose) {
+    overlayClose.addEventListener('click', closeDrawer);
+  }
+  if (overlay) {
+    overlay.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeDrawer);
+    });
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeDrawer();
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) {
+        closeDrawer();
+      }
+    });
+  }
+
+  /* ---------- Progressive Reveal on Scroll ---------- */
   const revealEls = document.querySelectorAll('.reveal');
   const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if ('IntersectionObserver' in window && revealEls.length && !reduced) {
-    // JS only: hide below-fold elements inline, then fade them up on intersect
-    revealEls.forEach((el) => {
-      if (el.getBoundingClientRect().top > window.innerHeight * 0.85) {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(24px)';
-      }
-      el.classList.add('revealed'); // marker class; transition defined in CSS
-    });
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) {
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'none';
+          e.target.classList.add('is-visible');
           io.unobserve(e.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.05 });
     revealEls.forEach((el) => io.observe(el));
   }
 
-  /* ---------- menu page: data load, filters, search ---------- */
+  /* ---------- DATA-DRIVEN MENU RENDERER ---------- */
   const tabsWrap = document.querySelector('[data-menu-tabs]');
   const menuWrap = document.querySelector('[data-menu]');
+
   if (menuWrap) {
     const esc = (s) => String(s == null ? '' : s)
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;');
 
-    const itemHTML = (item) => {
-      const picks = window.CHEF_PICKS || [];
-      const isChef = picks.some((p) => p.toLowerCase() === item.name.toLowerCase().replace(/\.$/, ''));
-      const img = item.img
-        ? `<img class="menu-item__img" src="${esc(item.img)}" alt="${esc(item.name)}" loading="lazy" onerror="this.outerHTML='<div class=&quot;menu-item__img menu-item__img--placeholder&quot;>☕</div>'">`
-        : `<div class="menu-item__img menu-item__img--placeholder" aria-hidden="true">☕</div>`;
+    // Clean category normalizer
+    const normalizeCategory = (cat) => {
+      const c = (cat || '').toLowerCase().trim();
+      if (c.includes('favourite')) return 'La Sabroso Favourites';
+      if (c.includes('pizza')) return 'Thin-Crust Pizzas';
+      if (c.includes('pasta')) return 'Handmade Pastas & Ravioli';
+      if (c.includes('burger') || c.includes('sandwich')) return 'Burgers & Artisanal Sandwiches';
+      if (c.includes('momo') || c.includes('bite') || c.includes('bread') || c.includes('french fries') || c.includes('croqueta')) return 'Starters & Quick Bites';
+      if (c.includes('soup') || c.includes('salad')) return 'Soups & Fresh Salads';
+      if (c.includes('healthy') || c.includes('main course')) return 'Continental & Main Courses';
+      if (c.includes('hot coffee') || c.includes('iced cofffee') || c.includes('cold coffee')) return 'Artisan Coffees & Cold Brews';
+      if (c.includes('shake') || c.includes('beverage') || c.includes('mojito')) return 'Milkshakes, Coolers & Beverages';
+      if (c.includes('dessert') || c.includes('gelato')) return 'Tableside Gelato Lab & Desserts';
+      return cat;
+    };
+
+    const itemRowHTML = (item) => {
+      const imgSrc = item.img || 'Food/Peppy Paneer Pizza.avif';
       return `
-        <article class="menu-item reveal" data-name="${esc(item.name.toLowerCase())}" data-desc="${esc((item.desc || '').toLowerCase())}">
-          ${img}
-          <div class="menu-item__body">
-            <div class="menu-item__top">
-              <h3 class="menu-item__name">
-                <span class="${item.veg ? 'tag-veg' : 'tag-nonveg'}" title="${item.veg ? 'Veg' : 'Non-veg'}"></span>
-                ${esc(item.name)}
-                ${isChef ? '<span class="badge-chef">★ Chef&rsquo;s Pick</span>' : ''}
-              </h3>
-              <span class="menu-item__price">₹${item.price}</span>
+        <article class="menu-item-row-card" data-name="${esc(item.name.toLowerCase())}" data-desc="${esc((item.desc || '').toLowerCase())}">
+          <img class="menu-item-row-card__thumb" src="${esc(imgSrc)}" alt="${esc(item.name)}" loading="lazy" onerror="this.src='Food/Peppy Paneer Pizza.avif'">
+          <div class="menu-item-row-card__details">
+            <div class="menu-item-row-card__title-row">
+              <span class="${item.veg ? 'tag-veg-dot' : 'tag-nonveg-dot'}" title="${item.veg ? 'Vegetarian' : 'Non-Vegetarian'}"></span>
+              <h3 class="menu-item-row-card__title">${esc(item.name)}</h3>
+              ${item.isChefPick ? '<span class="badge-chef">★ Chef Pick</span>' : ''}
             </div>
-            ${item.desc ? `<p class="menu-item__desc">${esc(item.desc)}</p>` : ''}
+            ${item.desc ? `<p class="menu-item-row-card__desc">${esc(item.desc)}</p>` : ''}
           </div>
+          <div class="menu-item-row-card__price">₹${item.price}</div>
         </article>`;
     };
 
-    fetch('assets/js/menu-data.json')
-      .then((r) => r.json())
-      .then((items) => {
-        const cats = [];
-        items.forEach((i) => { if (!cats.includes(i.category)) cats.push(i.category); });
+    const renderMenu = (items) => {
+      // Group items by normalized category
+      const catMap = {};
+      const catOrder = [
+        'La Sabroso Favourites',
+        'Thin-Crust Pizzas',
+        'Handmade Pastas & Ravioli',
+        'Burgers & Artisanal Sandwiches',
+        'Starters & Quick Bites',
+        'Continental & Main Courses',
+        'Soups & Fresh Salads',
+        'Artisan Coffees & Cold Brews',
+        'Milkshakes, Coolers & Beverages',
+        'Tableside Gelato Lab & Desserts'
+      ];
 
-        // tabs
-        if (tabsWrap) {
-          const mkBtn = (label, cat) => `<button data-cat="${esc(cat)}" class="${cat === '__all' ? 'active' : ''}">${esc(label)}</button>`;
-          tabsWrap.innerHTML = mkBtn('All', '__all') + cats.map((c) => mkBtn(c, c)).join('');
-        }
-
-        // sections
-        menuWrap.innerHTML = cats.map((cat) => {
-          const catItems = items.filter((i) => i.category === cat);
-          return `
-            <section class="menu-cat" data-section="${esc(cat)}">
-              <h2>${esc(cat)}</h2>
-              <p>${catItems.length} item${catItems.length === 1 ? '' : 's'}</p>
-              ${catItems.map(itemHTML).join('')}
-            </section>`;
-        }).join('');
-
-        // reveal newly injected elements
-        menuWrap.querySelectorAll('.reveal').forEach((el) => el.classList.add('revealed'));
-
-        // filter behavior
-        const searchInput = document.querySelector('[data-menu-search]');
-        let activeCat = '__all';
-        const apply = () => {
-          const q = (searchInput ? searchInput.value : '').trim().toLowerCase();
-          document.querySelectorAll('.menu-cat').forEach((sec) => {
-            const inCat = activeCat === '__all' || sec.dataset.section === activeCat;
-            let visible = 0;
-            sec.querySelectorAll('.menu-item').forEach((it) => {
-              const matchQ = !q || it.dataset.name.includes(q) || it.dataset.desc.includes(q);
-              const show = inCat && matchQ;
-              it.classList.toggle('hidden', !show);
-              if (show) visible += 1;
-            });
-            sec.classList.toggle('hidden', visible === 0);
-          });
-        };
-        if (tabsWrap) {
-          tabsWrap.addEventListener('click', (e) => {
-            const btn = e.target.closest('button[data-cat]');
-            if (!btn) return;
-            activeCat = btn.dataset.cat;
-            tabsWrap.querySelectorAll('button').forEach((b) => b.classList.toggle('active', b === btn));
-            apply();
-          });
-        }
-        if (searchInput) searchInput.addEventListener('input', apply);
-      })
-      .catch(() => {
-        menuWrap.innerHTML = '<p class="menu-note">Menu failed to load — please refresh. Live menu also available on Zomato District &amp; Swiggy Dineout.</p>';
+      items.forEach((it) => {
+        const norm = normalizeCategory(it.category);
+        if (!catMap[norm]) catMap[norm] = [];
+        catMap[norm].push(it);
       });
-  }
 
-  /* ---------- testimonial carousel ---------- */
-  const carousel = document.querySelector('[data-carousel]');
-  if (carousel) {
-    const slides = carousel.querySelector('.carousel__slides');
-    const figures = slides.children.length;
-    let idx = 0;
-    const dotsWrap = carousel.querySelector('.carousel__dots');
-    if (dotsWrap) {
-      for (let i = 0; i < figures; i++) {
-        const b = document.createElement('button');
-        b.setAttribute('aria-label', 'Go to review ' + (i + 1));
-        if (i === 0) b.classList.add('active');
-        b.addEventListener('click', () => go(i));
-        dotsWrap.appendChild(b);
+      const categories = Object.keys(catMap).sort((a, b) => {
+        const ia = catOrder.indexOf(a);
+        const ib = catOrder.indexOf(b);
+        if (ia !== -1 && ib !== -1) return ia - ib;
+        if (ia !== -1) return -1;
+        if (ib !== -1) return 1;
+        return a.localeCompare(b);
+      });
+
+      // Render Category Navigation Tabs
+      if (tabsWrap) {
+        tabsWrap.innerHTML = `
+          <button data-cat="__all" class="active">All</button>
+          ${categories.map(c => `<button data-cat="${esc(c)}">${esc(c)}</button>`).join('')}
+        `;
       }
-    }
-    const go = (i) => {
-      idx = (i + figures) % figures;
-      slides.style.transform = `translateX(-${idx * 100}%)`;
-      if (dotsWrap) [...dotsWrap.children].forEach((d, j) => d.classList.toggle('active', j === idx));
+
+      // Render Category Blocks
+      menuWrap.innerHTML = categories.map((cat) => {
+        const catItems = catMap[cat];
+        return `
+          <section class="menu-category-block" data-section="${esc(cat)}">
+            <div class="menu-category-block__header">
+              <h2 class="menu-category-block__title">${esc(cat)}</h2>
+            </div>
+            <div class="menu-restaurant-grid">
+              ${catItems.map(itemRowHTML).join('')}
+            </div>
+          </section>`;
+      }).join('');
+
+      // Filter & Search Logic
+      const searchInput = document.querySelector('[data-menu-search]');
+      let activeCat = '__all';
+
+      const applyFilter = () => {
+        const q = (searchInput ? searchInput.value : '').trim().toLowerCase();
+        let totalVisible = 0;
+
+        document.querySelectorAll('.menu-category-block').forEach((sec) => {
+          const inCat = activeCat === '__all' || sec.dataset.section === activeCat;
+          let secVisible = 0;
+
+          sec.querySelectorAll('.menu-item-row-card').forEach((row) => {
+            const name = row.dataset.name || '';
+            const desc = row.dataset.desc || '';
+            const matchQ = !q || name.includes(q) || desc.includes(q);
+            const show = inCat && matchQ;
+
+            row.style.display = show ? 'flex' : 'none';
+            if (show) {
+              secVisible++;
+              totalVisible++;
+            }
+          });
+
+          sec.style.display = secVisible === 0 ? 'none' : 'block';
+        });
+      };
+
+      if (tabsWrap) {
+        tabsWrap.addEventListener('click', (e) => {
+          const btn = e.target.closest('button[data-cat]');
+          if (!btn) return;
+          activeCat = btn.dataset.cat;
+          tabsWrap.querySelectorAll('button').forEach((b) => b.classList.toggle('active', b === btn));
+          applyFilter();
+        });
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', applyFilter);
+      }
     };
-    const prev = carousel.querySelector('.carousel__btn--prev');
-    const next = carousel.querySelector('.carousel__btn--next');
-    if (prev) prev.addEventListener('click', () => go(idx - 1));
-    if (next) next.addEventListener('click', () => go(idx + 1));
-    setInterval(() => go(idx + 1), 6000);
+
+    if (window.MENU_DATA && Array.isArray(window.MENU_DATA) && window.MENU_DATA.length > 0) {
+      renderMenu(window.MENU_DATA);
+    } else {
+      fetch('assets/js/menu-data.json')
+        .then((r) => r.json())
+        .then((items) => renderMenu(items))
+        .catch(() => {
+          if (window.MENU_DATA) renderMenu(window.MENU_DATA);
+        });
+    }
   }
 
-  /* ---------- lightbox ---------- */
-  const lb = document.querySelector('.lightbox');
-  if (lb) {
-    const lbImg = lb.querySelector('img');
-    document.querySelectorAll('[data-lightbox]').forEach((img) => {
-      img.addEventListener('click', () => {
-        lbImg.src = img.dataset.full || img.src;
-        lbImg.alt = img.alt || '';
-        lb.classList.add('open');
+  /* ---------- Gallery Filtering ---------- */
+  const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+  const galleryGroups = document.querySelectorAll('.gallery-group');
+  const allCards = document.querySelectorAll('.gallery-card');
+
+  if (filterBtns.length) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+
+        if (filter === 'all') {
+          galleryGroups.forEach(group => group.style.display = 'block');
+          allCards.forEach(card => card.style.display = 'block');
+        } else if (filter === 'cafe') {
+          galleryGroups.forEach(group => {
+            group.style.display = (group.dataset.category === 'cafe') ? 'block' : 'none';
+          });
+          allCards.forEach(card => card.style.display = 'block');
+        } else if (filter === 'food') {
+          galleryGroups.forEach(group => {
+            group.style.display = (group.dataset.category === 'food-drinks') ? 'block' : 'none';
+          });
+          allCards.forEach(card => {
+            card.style.display = (card.dataset.category === 'food') ? 'block' : 'none';
+          });
+        } else if (filter === 'drinks') {
+          galleryGroups.forEach(group => {
+            group.style.display = (group.dataset.category === 'food-drinks') ? 'block' : 'none';
+          });
+          allCards.forEach(card => {
+            card.style.display = (card.dataset.category === 'drinks') ? 'block' : 'none';
+          });
+        }
       });
     });
+  }
+
+  /* ---------- Interactive Lightbox Gallery ---------- */
+  const lb = document.querySelector('.lightbox');
+  const allLightboxItems = Array.from(document.querySelectorAll('[data-lightbox]'));
+  let currentActiveList = [];
+  let currentIndex = 0;
+
+  if (lb && allLightboxItems.length) {
+    const lbImg = lb.querySelector('.lightbox__img') || lb.querySelector('img');
+    const lbCaption = lb.querySelector('.lightbox__caption');
+
+    const showImage = (index) => {
+      const list = currentActiveList.length ? currentActiveList : allLightboxItems;
+      currentIndex = (index + list.length) % list.length;
+      const target = list[currentIndex];
+      const src = target.dataset.full || target.src || (target.querySelector('img') ? target.querySelector('img').src : '');
+      const caption = target.dataset.caption || (target.querySelector('img') ? target.querySelector('img').alt : '') || '';
+
+      if (lbImg) lbImg.src = src;
+      if (lbCaption) lbCaption.textContent = caption;
+    };
+
+    allLightboxItems.forEach((item) => {
+      item.addEventListener('click', () => {
+        // Collect currently visible lightbox items
+        currentActiveList = allLightboxItems.filter(el => {
+          return el.offsetParent !== null && window.getComputedStyle(el).display !== 'none';
+        });
+        if (!currentActiveList.length) currentActiveList = allLightboxItems;
+        currentIndex = currentActiveList.indexOf(item);
+        if (currentIndex === -1) currentIndex = 0;
+        showImage(currentIndex);
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    const closeBtn = lb.querySelector('.lightbox__close');
+    const prevBtn = lb.querySelector('.lightbox__prev');
+    const nextBtn = lb.querySelector('.lightbox__next');
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    }
+    if (prevBtn) prevBtn.addEventListener('click', () => showImage(currentIndex - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => showImage(currentIndex + 1));
+
     lb.addEventListener('click', (e) => {
-      if (e.target === lb || e.target.classList.contains('lightbox__close')) lb.classList.remove('open');
+      if (e.target === lb) {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+      }
     });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lb.classList.remove('open'); });
-  }
 
-  /* ---------- fake newsletter submit ---------- */
-  const nlForm = document.querySelector('[data-newsletter]');
-  if (nlForm) {
-    nlForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = nlForm.querySelector('button');
-      btn.textContent = 'Subscribed ✓';
-      btn.disabled = true;
-      nlForm.querySelector('input').value = '';
+    window.addEventListener('keydown', (e) => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+      } else if (e.key === 'ArrowLeft') {
+        showImage(currentIndex - 1);
+      } else if (e.key === 'ArrowRight') {
+        showImage(currentIndex + 1);
+      }
     });
   }
-
-  /* Chef's picks — names normalized, matched against live menu data */
-  window.CHEF_PICKS = [
-    'Honey Lemon Pepper Chicken Tenders', 'Honey Lemon Pepper Tenders',
-    'Creamy Garlic Prawns', 'Fish And Chips', 'Chicken Alfredo Pasta',
-    'Chicken Alfredo Pizza', 'Marry Me Chicken', 'Tuscan Chicken',
-    'Lava Mud Cheese Cake', 'Lotus Biscoff Cold Coffee', 'Nutella Milkshake',
-    'French Hot Chocolate', 'Cranberry Coffee', 'Veg Masala Mafia Pasta',
-    'Chicken Masala Mafia Pasta'
-  ];
 })();
